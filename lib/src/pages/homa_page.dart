@@ -1,7 +1,8 @@
-import 'package:components_flutter/src/providers/menu_provider.dart';
-import 'package:components_flutter/src/utils/icons_string_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:components_flutter/src/providers/menu_provider.dart';
+import 'package:components_flutter/src/utils/icons_string_util.dart';
+import 'package:components_flutter/src/pages/alert_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -28,7 +29,7 @@ class HomePage extends StatelessWidget {
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot){
         print(snapshot.data);
         return ListView(
-          children: _listItems(snapshot.data),
+          children: _listItems(snapshot.data, context),
         );
       },
     );
@@ -38,7 +39,7 @@ class HomePage extends StatelessWidget {
     // );
   }
 
-  List<Widget> _listItems(List<dynamic> data) {
+  List<Widget> _listItems(List<dynamic> data, BuildContext context) {
     final List<Widget> options = [];
     data.forEach((opt) {
       final widgetTemp = ListTile(
@@ -47,6 +48,10 @@ class HomePage extends StatelessWidget {
         trailing: Icon(Icons.keyboard_arrow_right, color: Colors.blue),
         onTap: (){
 
+          final route = MaterialPageRoute(
+            builder: (context)=> AlertPage()
+            );
+          Navigator.push(context, route);
         },
       );
 
@@ -57,3 +62,8 @@ class HomePage extends StatelessWidget {
      return options;
   }
 }
+// final route = MaterialPageRoute(
+//             builder: (context){
+//               return AlertPage();
+//             });
+//           Navigator.push(context, route);

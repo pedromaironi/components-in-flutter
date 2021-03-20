@@ -1,14 +1,12 @@
-import 'package:components_flutter/src/pages/home_temp.dart';
+import 'package:components_flutter/src/pages/homa_page.dart';
+// import 'package:components_flutter/src/pages/home_temp.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(HomePage());
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Material App',
-        debugShowCheckedModeBanner: false,
-        home: HomePageTemp());
+  Widget build(BuildContext context) => new HomePage();
   }
-}
+

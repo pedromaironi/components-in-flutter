@@ -1,4 +1,5 @@
-import 'package:components_flutter/src/pages/providers/menu_provider.dart';
+import 'package:components_flutter/src/providers/menu_provider.dart';
+import 'package:components_flutter/src/utils/icons_string_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +43,7 @@ class HomePage extends StatelessWidget {
     data.forEach((opt) {
       final widgetTemp = ListTile(
         title: Text(opt['texto']),
-        leading: Icon(Icons.access_alarm, color:Colors.blue),
+        leading: getIcon(opt['icon']),
         trailing: Icon(Icons.keyboard_arrow_right, color: Colors.blue),
         onTap: (){
 
